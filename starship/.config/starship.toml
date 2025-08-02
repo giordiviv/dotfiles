@@ -1,0 +1,9 @@
+add_newline = false
+
+# A minimal left prompt
+format = """$directory$character"""
+
+# Move the rest of the prompt on the right
+right_format = """$all"""
+
+
