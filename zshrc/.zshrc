@@ -15,8 +15,11 @@ fastfetch
 
 # Plug ins:
 
-# zsh-vi-mode: Vim motions in zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Vim motions in zsh
+# Removed zsh-vi-mode was making the termianl slow.
+# The natural zsh vi motions seem fine for the moment
+#'^?' backward-delete-char -> allow to use backspace even after using vi mode 
+bindkey -v '^?' backward-delete-char
 
 # zsh-autocompletions: Autocompletion for zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
