@@ -10,6 +10,8 @@ SAVEHIST=50000
 setopt inc_append_history
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 fastfetch
 
