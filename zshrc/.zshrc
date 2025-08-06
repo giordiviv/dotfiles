@@ -9,6 +9,12 @@ SAVEHIST=50000
 
 setopt inc_append_history
 
+# Source local (untracked) config if it exists
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
