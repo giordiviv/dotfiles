@@ -22,5 +22,6 @@ return{
                 }
             }
         })
+        vim.keymap.set('n', '<leader>n', '<Cmd>Neotree filesystem toggle left<CR>', {desc='Show files tree'})
     end,
 }
