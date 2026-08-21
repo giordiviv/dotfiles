@@ -4,6 +4,6 @@ vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
 
 require("config.lazy")
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("catppuccin-frappe")
 vim.o.number = true
 vim.wo.relativenumber = true
