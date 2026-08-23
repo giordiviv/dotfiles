@@ -12,19 +12,18 @@ return {
 				timeout_ms = 500,
 				lsp_format = "fallback",
 			},
-		})
-
-		-- Pass StyLua flags:
-		formatters =
-			{
+			-- Pass StyLua flags:
+			formatters = {
 				stylua = {
 					prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
 				},
 			},
-			-- Manual format keymap (normal + visual), in case you want to
-			-- format without saving.
-			vim.keymap.set({ "n", "v" }, "<leader>f", function()
-				require("conform").format({ async = true, lsp_format = "fallback" })
-			end, { desc = "Format buffer" })
+		})
+
+		-- Manual format keymap (normal + visual), in case you want to
+		-- format without saving.
+		vim.keymap.set({ "n", "v" }, "<leader>f", function()
+			require("conform").format({ async = true, lsp_format = "fallback" })
+		end, { desc = "Format buffer" })
 	end,
 }
