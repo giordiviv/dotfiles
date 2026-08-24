@@ -4,17 +4,27 @@ return {
         dependencies = {
             "mason-org/mason.nvim",
             "mason-org/mason-lspconfig.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
         },
         config = function()
             -- 1. Mason: installs the language server *binaries*.
+            -- List: https://mason-registry.dev/registry/list
             require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
+                    "biome", -- CSS/JS/TS/JSON: linter + format + import-sort
+                    "emmet_language_server", -- HTML: Emmet abbrev. expansion
+                    "html", -- HTML: Matur LSP from VSCode
                     "lua_ls",
-                    "stylua", -- Lua: formatter
-                    "rust_analyzer",
-                    "ruff", -- Python: linting + formatting
                     "pyrefly", -- Python: types, hover, go-to-def, completion
+                    "ruff", -- Python: linting + formatting
+                    "rust_analyzer",
+                    "superhtml", -- HTML: Error diagnostic + formatter
+                },
+            })
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    "stylua", -- Lua: formatter
                 },
             })
 
@@ -84,7 +94,16 @@ return {
                 },
             })
 
-            vim.lsp.enable({ "lua_ls", "rust_analyzer", "ruff", "pyrefly" })
+            vim.lsp.enable({
+                "biome",
+                "emmet_language_server",
+                "html",
+                "lua_ls",
+                "pyrefly",
+                "ruff",
+                "rust_analyzer",
+                "superhtml",
+            })
             vim.diagnostic.config({
                 virtual_text = {
                     severity = { min = vim.diagnostic.severity.WARN },
