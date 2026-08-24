@@ -85,6 +85,16 @@ return {
             })
 
             vim.lsp.enable({ "lua_ls", "rust_analyzer", "ruff", "pyrefly" })
+            vim.diagnostic.config({
+                virtual_text = {
+                    severity = { min = vim.diagnostic.severity.WARN },
+                    prefix = "●",
+                },
+                signs = true,
+                underline = true,
+                update_in_insert = false,
+                severity_sort = true,
+            })
         end,
     },
 }
