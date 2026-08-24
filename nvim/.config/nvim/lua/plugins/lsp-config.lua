@@ -37,21 +37,26 @@ return {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(ev)
                     local opts = { buffer = ev.buf }
-                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-                    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-                    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-                    vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-                    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-                    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts) -- float for cursor line
-                    vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- all diagnostics → list
-                    vim.keymap.set("n", "]d", function()
+
+                    -- Helper function to quickly attach descriptions
+                    local function descmap(mode, lhs, rhs, desc)
+                        vim.keymap.set(mode, lhs, rhs, vim.tbl_deep_extend("force", opts, { desc = desc }))
+                    end
+                    descmap("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
+                    descmap("n", "gd", vim.lsp.buf.definition, "Go to Definition")
+                    descmap("n", "K", vim.lsp.buf.hover, "Hover Documentation")
+                    descmap("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+                    descmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
+                    descmap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+                    descmap("n", "gr", vim.lsp.buf.references, "References")
+                    descmap("n", "<leader>e", vim.diagnostic.open_float, "Open Float Diagnostic") -- float for cursor line
+                    descmap("n", "<leader>q", vim.diagnostic.setloclist, "Open List Diagnostic") -- all diagnostics → list
+                    descmap("n", "]d", function()
                         vim.diagnostic.jump({ count = 1 })
-                    end, opts)
-                    vim.keymap.set("n", "[d", function()
+                    end, "Diagnostic: Next")
+                    descmap("n", "[d", function()
                         vim.diagnostic.jump({ count = -1 })
-                    end, opts)
+                    end, "Diagnostic: Previous")
                 end,
             })
 
