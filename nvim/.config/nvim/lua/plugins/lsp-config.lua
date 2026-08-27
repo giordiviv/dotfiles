@@ -28,6 +28,9 @@ return {
                 },
             })
 
+            vim.filetype.add({
+                extension = { shtml = "superhtml" },
+            })
             -- 2. Buffer-local keymaps on attach.
             -- Neovim 0.11+ already ships defaults (grn rename, gra code action,
             -- grr references, gri implementation, K hover, gO document symbols,
@@ -93,7 +96,7 @@ return {
                             -- current, non-deprecated key. "strict" / "all" turn the most on;
                             -- "basic" is the quiet default you're trying to escape.
                             typeCheckingMode = "default",
-                            displayTypeErrors = "force-on",
+                            -- displayTypeErrors = "force-on", deprecated and redundant
                         },
                     },
                 },
@@ -111,8 +114,20 @@ return {
             })
             vim.diagnostic.config({
                 virtual_text = {
+                    format = function(diagnostic)
+                        local source = diagnostic.source or "LSP"
+                        local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
+                        return string.format("%s -> %s: %s", source, code, diagnostic.message)
+                    end,
                     severity = { min = vim.diagnostic.severity.WARN },
                     prefix = "●",
+                },
+                float = {
+                    format = function(diagnostic)
+                        local source = diagnostic.source or "LSP"
+                        local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
+                        return string.format("%s -> %s: %s", source, code, diagnostic.message)
+                    end,
                 },
                 signs = true,
                 underline = true,
