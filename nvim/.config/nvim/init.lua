@@ -8,6 +8,8 @@ vim.opt.inccommand = "split"
 
 vim.opt.wrap = false
 vim.opt.colorcolumn = "88"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 require("config.lazy")
 vim.cmd.colorscheme("catppuccin-frappe")
