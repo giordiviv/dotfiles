@@ -13,7 +13,7 @@ vim.opt.smartcase = true
 
 require("config.lazy")
 -- vim.cmd.colorscheme("catppuccin-macchiato")
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("gruvbox-material")
 vim.o.number = true
 vim.wo.relativenumber = true
 
