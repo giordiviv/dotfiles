@@ -13,7 +13,7 @@ return {
             timeout = 3000,
 
             -- Render style: "default", "minimal", "simple", or "compact"
-            render = "compact",
+            render = "default",
 
             -- Max width of the notification window
             max_width = 50,
