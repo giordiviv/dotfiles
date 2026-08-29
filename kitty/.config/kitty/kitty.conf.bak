@@ -2794,12 +2794,11 @@ map kitty_mod+v paste_from_clipboard
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="FiraCode Nerd Font Mono"
+font_family      family='FiraCode Nerd Font Mono Retina'
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
+font_size 12.0
 
-symbol_map U+E000-U+F8FF FiraCode Nerd Font
-font_features FiraCode Nerd Font +size=20
-
+background_opacity 1
 # END_KITTY_FONTS
