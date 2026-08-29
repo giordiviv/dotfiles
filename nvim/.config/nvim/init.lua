@@ -11,6 +11,10 @@ vim.opt.colorcolumn = "88"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 require("config.lazy")
 -- vim.cmd.colorscheme("catppuccin-macchiato")
 vim.cmd.colorscheme("gruvbox-material")

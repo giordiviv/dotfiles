@@ -32,7 +32,7 @@ return {
         vim.notify = notify
 
         -- Keyboard shortcut to clear active notifications instantly
-        vim.keymap.set("n", "<leader>nd", function()
+        vim.keymap.set("n", "<leader>dn", function()
             notify.dismiss({ pending = true, silent = true })
         end, { desc = "Dismiss All Notifications" })
     end,
