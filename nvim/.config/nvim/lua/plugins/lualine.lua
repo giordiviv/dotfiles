@@ -1,3 +1,4 @@
+-- Editor Line
 return {
     "nvim-lualine/lualine.nvim",
     config = function()

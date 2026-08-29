@@ -1,3 +1,4 @@
+-- Completion Plugin
 return {
     "saghen/blink.cmp",
     version = "1.*", -- pin to a v1 release → downloads a prebuilt binary; avoids needing a Rust toolchain

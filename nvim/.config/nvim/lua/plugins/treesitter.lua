@@ -1,3 +1,4 @@
+-- highlighting and coloring of the code
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",

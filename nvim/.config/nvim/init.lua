@@ -12,7 +12,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 require("config.lazy")
-vim.cmd.colorscheme("catppuccin-frappe")
+-- vim.cmd.colorscheme("catppuccin-macchiato")
+vim.cmd.colorscheme("gruvbox")
 vim.o.number = true
 vim.wo.relativenumber = true
 

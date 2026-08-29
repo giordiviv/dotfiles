@@ -1,3 +1,5 @@
+-- LSP and Linting settings using Mason and nvim-lspconfig
+-- some formatters are also installed through Mason
 return {
     {
         "neovim/nvim-lspconfig",

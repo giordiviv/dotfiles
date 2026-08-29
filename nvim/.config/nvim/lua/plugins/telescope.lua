@@ -1,3 +1,4 @@
+-- Search and grep through files
 return {
     "nvim-telescope/telescope.nvim",
     -- tag = "0.1.8",

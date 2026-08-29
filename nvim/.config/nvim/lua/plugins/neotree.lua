@@ -1,3 +1,4 @@
+-- File Explorer
 return {
     "nvim-neo-tree/neo-tree.nvim",
     name = "neo-tree",
