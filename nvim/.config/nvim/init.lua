@@ -21,6 +21,7 @@ vim.cmd.colorscheme("gruvbox-material")
 vim.o.number = true
 vim.wo.relativenumber = true
 
+-- Wrap text, markdown and gitcommit files
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "markdown", "text", "gitcommit" },
     callback = function()
@@ -30,6 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Change tab to 2 spaces for web-developing
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "html", "css", "javascript", "typescript", "json", "yaml" },
     callback = function()
