@@ -4,6 +4,7 @@ return {
     branch = "main",
     lazy = false, -- main does NOT support lazy-loading
     build = ":TSUpdate",
+    auto_install = true,
     config = function()
         -- List supported languages:
         -- https://github.com/nvim-treesitter/nvim-treesitter/blob/main/SUPPORTED_LANGUAGES.md
