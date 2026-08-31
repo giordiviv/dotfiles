@@ -114,24 +114,32 @@ return {
                 "rust_analyzer",
                 "superhtml",
             })
+
+            -- 4. How diagnostic *look* in the buffer.
             vim.diagnostic.config({
-                virtual_text = {
-                    format = function(diagnostic)
-                        local source = diagnostic.source or "LSP"
-                        local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
-                        return string.format("%s -> %s: %s", source, code, diagnostic.message)
-                    end,
-                    severity = { min = vim.diagnostic.severity.WARN },
-                    prefix = "●",
-                },
+                virtual_lines = { current_line = true },
+                virtual_text = false,
                 float = {
+                    border = "rounded",
+                    source = true,
+                    header = "",
                     format = function(diagnostic)
-                        local source = diagnostic.source or "LSP"
                         local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
-                        return string.format("%s -> %s: %s", source, code, diagnostic.message)
+                        return string.format("%s %s", diagnostic.message, code)
                     end,
                 },
-                signs = true,
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = "✘",
+                        [vim.diagnostic.severity.WARN] = "",
+                        [vim.diagnostic.severity.INFO] = "",
+                        [vim.diagnostic.severity.HINT] = "",
+                    },
+                    numhl = {
+                        [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
+                        [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
+                    },
+                },
                 underline = true,
                 update_in_insert = false,
                 severity_sort = true,
