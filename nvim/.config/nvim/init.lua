@@ -12,12 +12,14 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("config.lazy")
--- vim.cmd.colorscheme("catppuccin-macchiato")
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("catppuccin-macchiato")
+-- vim.cmd.colorscheme("gruvbox-material")
 vim.o.number = true
 vim.wo.relativenumber = true
 
