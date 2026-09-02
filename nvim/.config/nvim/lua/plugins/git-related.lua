@@ -106,4 +106,23 @@ return {
             end,
         },
     },
+    {
+        "sindrets/diffview.nvim",
+        cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFileHistory" },
+        keys = {
+            { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Diffview: open" },
+            { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "Diffview: file history (current file)" },
+            { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "Diffview: repo history" },
+            { "<leader>gq", "<cmd>DiffviewClose<cr>", desc = "Diffview: close" },
+        },
+        opts = {
+            enhanced_diff_hl = true,
+            view = {
+                merge_tool = {
+                    layout = "diff3_mixed", -- 3-way conflict view: ours | base+result | theirs
+                    disable_diagnostics = true,
+                },
+            },
+        },
+    },
 }
