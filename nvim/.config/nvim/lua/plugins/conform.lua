@@ -28,7 +28,7 @@ return {
 
         -- Manual format keymap (normal + visual), in case you want to
         -- format without saving.
-        vim.keymap.set({ "n", "v" }, "<leader>f", function()
+        vim.keymap.set({ "n", "v" }, "<leader>cf", function()
             require("conform").format({ async = true, lsp_format = "fallback" })
         end, { desc = "Format buffer" })
     end,
