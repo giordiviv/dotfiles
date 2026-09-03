@@ -37,19 +37,6 @@ return {
         --     return suffix
         -- end,
 
-        -- Follow [[wikilinks]] and URLs with gf / <CR>. Let obsidian handle
-        -- markdown links but fall through to normal gf otherwise.
-        follow_url_func = function(url)
-            vim.ui.open(url) -- built-in since nvim 0.10, no plenary needed
-        end,
-
-        -- Match this to YOUR completion engine (see note below):
-        completion = {
-            nvim_cmp = false,
-            blink = true,
-            min_chars = 2,
-        },
-
         -- Match this to YOUR picker (see note below):
         picker = {
             name = "telescope.nvim", -- or "telescope.nvim" or "fzf-lua" or "mini.pick"
@@ -67,8 +54,10 @@ return {
         { "<leader>ob", "<cmd>Obsidian backlinks<cr>", desc = "Obsidian: backlinks" },
         { "<leader>ol", "<cmd>Obsidian links<cr>", desc = "Obsidian: links in note" },
         { "<leader>ip", "<cmd>Obsidian paste_img<cr>", desc = "Obsidian: paste image" },
+        {
+            "<leader>ov",
+            "<cmd>edit /Users/odysseus/Library/Mobile Documents/iCloud~md~obsidian/Documents/OrionNebula<cr>",
+            desc = "Open Obsidian vault",
+        },
     },
-    vim.keymap.set("n", "<leader>ov", function()
-        vim.cmd("edit /Users/odysseus/Library/Mobile Documents/iCloud~md~obsidian/Documents/OrionNebula")
-    end, { desc = "Open Obsidian vault" }),
 }
