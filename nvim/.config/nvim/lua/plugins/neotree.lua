@@ -13,7 +13,6 @@ return {
         -- "folke/snacks.nvim",
     },
     lazy = false, -- neo-tree will lazily load itself
-    ---@module "neo-tree"
     config = function()
         require("neo-tree").setup({
             filesystem = {
