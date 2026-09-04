@@ -47,13 +47,19 @@ return {
                     local function descmap(mode, lhs, rhs, desc)
                         vim.keymap.set(mode, lhs, rhs, vim.tbl_deep_extend("force", opts, { desc = desc }))
                     end
-                    descmap("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-                    descmap("n", "gd", vim.lsp.buf.definition, "Go to Definition")
+                    -- stylua: ignore start
+                    descmap("n", "gd", function() Snacks.picker.lsp_definitions() end, "Go to Definition")
+                    descmap("n", "gD", function() Snacks.picker.lsp_declarations() end, "Go to Declaration")
+                    descmap("n", "gi", function() Snacks.picker.lsp_implementations() end, "Go to implementation")
+                    descmap("n", "gy", function() Snacks.picker.lsp_type_definitions() end, "Go to Type Definition")
+                    descmap("n", "gr", function() Snacks.picker.lsp_references() end, "References")
+                    descmap("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+                    -- stylua: ignore end
+
+                    -- No picker equivalent
                     descmap("n", "K", vim.lsp.buf.hover, "Hover Documentation")
-                    descmap("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
                     descmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
                     descmap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-                    descmap("n", "gr", vim.lsp.buf.references, "References")
                     descmap("n", "<leader>e", vim.diagnostic.open_float, "Open Float Diagnostic") -- float for cursor line
                     descmap("n", "<leader>q", vim.diagnostic.setloclist, "Open List Diagnostic") -- all diagnostics → list
                     descmap("n", "]d", function()
