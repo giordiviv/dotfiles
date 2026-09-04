@@ -11,6 +11,7 @@ return {
         },
         input = { enabled = true }, -- the vim.ui.input piece dressing used to give you
         indent = { enabled = true }, -- show
+        scope = { enabled = true },
         styles = {
             notification = {
                 -- wo = { wrap = true },
@@ -24,8 +25,9 @@ return {
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fh", function() Snacks.picker.help() end, desc = "Help tags" },
-        { "<leader>fa", function() Snacks.picker.files({ hidden = true, ignored = true }) end, desc = "Find all files" },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+        { "<leader>fF", function() Snacks.picker.files({ hidden = true, ignored = true }) end, desc = "Find files (hidden + ignored)" },
+        { "<leader>fG", function() Snacks.picker.grep({ hidden = true, ignored = true }) end, desc = "Grep (hidden + ignored)" },
         -- stylua: ignore end
         -- your notify dismiss keymap
         {
