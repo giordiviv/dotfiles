@@ -88,7 +88,6 @@ return {
                 end, "Reset selected lines")
                 map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
                 map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
-                map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
 
                 -- Preview / blame / diff
                 map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
