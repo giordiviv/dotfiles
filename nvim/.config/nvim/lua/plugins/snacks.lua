@@ -19,7 +19,7 @@ return {
         },
     },
     keys = {
-        -- your telescope keymaps, mapped to snacks.picker
+        -- telescope keymaps, mapped to snacks.picker
         -- stylua: ignore start
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
@@ -29,13 +29,21 @@ return {
         { "<leader>fF", function() Snacks.picker.files({ hidden = true, ignored = true }) end, desc = "Find files (hidden + ignored)" },
         { "<leader>fG", function() Snacks.picker.grep({ hidden = true, ignored = true }) end, desc = "Grep (hidden + ignored)" },
         -- stylua: ignore end
-        -- your notify dismiss keymap
+        -- notify dismiss keymap
         {
             "<leader>dn",
             function()
                 Snacks.notifier.hide()
             end,
             desc = "Dismiss all notifications",
+        },
+        -- search
+        {
+            "<leader>si",
+            function()
+                Snacks.picker.icons()
+            end,
+            desc = "Icons",
         },
     },
 }
