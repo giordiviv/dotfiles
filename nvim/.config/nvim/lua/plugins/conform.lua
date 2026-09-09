@@ -3,6 +3,18 @@ return {
     "stevearc/conform.nvim",
     event = { "BufWritePre" }, -- lazy-load right before the first save
     cmd = { "ConformInfo" },
+    -- Manual format keymap (normal + visual), in case you want to
+    -- format without saving.
+    keys = {
+        {
+            "<leader>cf",
+            function()
+                require("conform").format({ async = true, lsp_format = "fallback" })
+            end,
+            mode = { "n", "v" },
+            desc = "Format buffer",
+        },
+    },
     config = function()
         require("conform").setup({
             formatters_by_ft = {
@@ -25,11 +37,5 @@ return {
                 },
             },
         })
-
-        -- Manual format keymap (normal + visual), in case you want to
-        -- format without saving.
-        vim.keymap.set({ "n", "v" }, "<leader>cf", function()
-            require("conform").format({ async = true, lsp_format = "fallback" })
-        end, { desc = "Format buffer" })
     end,
 }
