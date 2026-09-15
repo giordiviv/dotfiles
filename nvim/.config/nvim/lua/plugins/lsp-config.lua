@@ -15,6 +15,7 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "biome", -- CSS/JS/TS/JSON: linter + format + import-sort
+                    "cssls", -- base CSS intelligence + color swatches
                     "emmet_language_server", -- HTML: Emmet abbrev. expansion
                     "html", -- HTML: Matur LSP from VSCode
                     "lua_ls",
@@ -112,6 +113,7 @@ return {
 
             vim.lsp.enable({
                 "biome",
+                "cssls",
                 "emmet_language_server",
                 "html",
                 "lua_ls",
