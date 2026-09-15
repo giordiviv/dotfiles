@@ -4,6 +4,12 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
+        image = {
+            enabled = true,
+            doc = {
+                inline = true,
+            },
+        },
         picker = { enabled = true, ui_select = true }, -- replaces telescope + telescope-ui-select
         notifier = { -- replaces nvim-notify
             enabled = true,
