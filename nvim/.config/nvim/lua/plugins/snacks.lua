@@ -7,7 +7,8 @@ return {
         image = {
             enabled = true,
             doc = {
-                inline = true,
+                inline = false,
+                float = true,
             },
         },
         picker = { enabled = true, ui_select = true }, -- replaces telescope + telescope-ui-select
