@@ -11,6 +11,9 @@ vim.opt.colorcolumn = "88"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.opt.spell = true
+vim.opt.spelllang = { "en", "it" }
+
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
